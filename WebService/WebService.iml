@@ -10,7 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="com.google.dagger:dagger-compiler:2.6.1" level="project" />
+    <orderEntry type="library" name="com.google.dagger:dagger-compiler:2.6.1" level="project" />
     <orderEntry type="module" module-name="Database" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.7" level="project" />
