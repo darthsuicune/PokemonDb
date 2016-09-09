@@ -38,12 +38,6 @@
       </selectedPath>
     </treeState>
     <treeState key="project">
-      <expandedPath>
-        <pathElement>
-          <option name="myNodeId" value="project1" />
-          <option name="myNodeType" value="jetbrains.buildServer.tree.descriptors.ProjectDescriptor" />
-        </pathElement>
-      </expandedPath>
       <selectedPath>
         <pathElement>
           <option name="myNodeId" value="project1" />
@@ -54,7 +48,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b26d31-f335-45fc-9b88-ae15eb50e57f" name="Default" comment="Update dependency">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_guava_guava_19_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebService.iml" afterPath="$PROJECT_DIR$/WebService.iml" />
     </list>
@@ -390,7 +383,7 @@
       <recent name="$PROJECT_DIR$/../Pokemon" />
     </key>
   </component>
-  <component name="RunManager" selected="Jetty Runner.JettyTest">
+  <component name="RunManager" selected="Jetty Runner.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -645,7 +638,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="JettyTest" type="JettyRunner-By-GuiKeller" factoryName="Jetty Runner">
+    <configuration default="false" name="Unnamed" type="JettyRunner-By-GuiKeller" factoryName="Jetty Runner">
       <option name="JettyRunnerV112-WebAppPath" value="/" />
       <option name="JettyRunnerV112-WebAppFolder" value="$PROJECT_DIR$" />
       <option name="JettyRunnerV112-ClassesDirectory" value="$PROJECT_DIR$/WEB-INF/classes" />
@@ -656,7 +649,7 @@
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Jetty Runner.JettyTest" />
+      <item index="0" class="java.lang.String" itemvalue="Jetty Runner.Unnamed" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -771,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473451394768</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update dependency">
+      <created>1473459181824</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1473459181824</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1055,8 +1055,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="656" column="50" selection-start-line="656" selection-start-column="50" selection-end-line="656" selection-end-column="50" />
+        <state relative-caret-position="279">
+          <caret line="646" column="35" selection-start-line="646" selection-start-column="35" selection-end-line="646" selection-end-column="35" />
           <folding />
         </state>
       </provider>
