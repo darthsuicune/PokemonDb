@@ -12,5 +12,6 @@
     <orderEntry type="library" name="com.google.dagger:dagger:2.6.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="com.google.dagger:dagger-compiler:2.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
+    <orderEntry type="library" name="com.google.guava:guava:19.0" level="project" />
   </component>
 </module>
