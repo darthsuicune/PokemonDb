@@ -48,6 +48,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b26d31-f335-45fc-9b88-ae15eb50e57f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/PokemonDatabaseTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PokemonWebService.iws" />
@@ -106,11 +107,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PokemonDatabaseTest.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="PokemonDatabaseTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../Database/test/com/dlgdev/pokemon/database/PokemonDatabaseTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="342">
                   <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PokemonDatabaseTest.xml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.idea/runConfigurations/PokemonDatabaseTest.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -654,32 +665,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="PokemonDatabaseTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.dlgdev.pokemon.database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Database" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.dlgdev.pokemon.database" />
-      <option name="MAIN_CLASS_NAME" value="com.dlgdev.pokemon.database.PokemonDatabaseTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="Jetty tests" type="JettyRunner-By-GuiKeller" factoryName="Jetty Runner">
       <option name="JettyRunnerV112-WebAppPath" value="/" />
       <option name="JettyRunnerV112-WebAppFolder" value="$PROJECT_DIR$" />
@@ -863,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473499837457</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add failing test">
+      <created>1473500328608</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1473500328608</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -940,7 +932,8 @@
     <MESSAGE value="Add test" />
     <MESSAGE value="Update dependency" />
     <MESSAGE value="Remove library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove library" />
+    <MESSAGE value="Add failing test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add failing test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1192,6 +1185,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/runConfigurations/PokemonDatabaseTest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
