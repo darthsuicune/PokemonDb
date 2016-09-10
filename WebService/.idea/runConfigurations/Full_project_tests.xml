@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="TestTest" type="JUnit" factoryName="JUnit">
+  <configuration default="false" name="Full project tests" type="JUnit" factoryName="JUnit">
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
       <pattern>
         <option name="PATTERN" value="com.dlgdev.pokemon.database.*" />
