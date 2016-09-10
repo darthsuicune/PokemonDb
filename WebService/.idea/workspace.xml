@@ -38,12 +38,6 @@
       </selectedPath>
     </treeState>
     <treeState key="project">
-      <expandedPath>
-        <pathElement>
-          <option name="myNodeId" value="project1" />
-          <option name="myNodeType" value="jetbrains.buildServer.tree.descriptors.ProjectDescriptor" />
-        </pathElement>
-      </expandedPath>
       <selectedPath>
         <pathElement>
           <option name="myNodeId" value="project1" />
@@ -55,7 +49,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4b26d31-f335-45fc-9b88-ae15eb50e57f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebService.iml" afterPath="$PROJECT_DIR$/WebService.iml" />
     </list>
     <ignored path="PokemonWebService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,8 +132,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Remove library" />
         <option value="Denis Lapuente &lt;darthsuicune@gmail.com&gt;" />
+        <option value="Remove library" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -331,20 +324,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WebService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -421,32 +400,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.PokemonDatabaseTest">
-    <configuration default="false" name="PokemonDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.dlgdev.pokemon.database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Database" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.dlgdev.pokemon.database" />
-      <option name="MAIN_CLASS_NAME" value="com.dlgdev.pokemon.database.PokemonDatabaseTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -701,6 +654,32 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="false" name="PokemonDatabaseTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.dlgdev.pokemon.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Database" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.dlgdev.pokemon.database" />
+      <option name="MAIN_CLASS_NAME" value="com.dlgdev.pokemon.database.PokemonDatabaseTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="false" name="Jetty tests" type="JettyRunner-By-GuiKeller" factoryName="Jetty Runner">
       <option name="JettyRunnerV112-WebAppPath" value="/" />
       <option name="JettyRunnerV112-WebAppFolder" value="$PROJECT_DIR$" />
@@ -712,14 +691,9 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Jetty Runner.Jetty tests" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.PokemonDatabaseTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.PokemonDatabaseTest" />
+      <item index="1" class="java.lang.String" itemvalue="Jetty Runner.Jetty tests" />
     </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PokemonDatabaseTest" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -882,11 +856,21 @@
       <option name="project" value="LOCAL" />
       <updated>1473499397339</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Remove library">
+      <created>1473499837457</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1473499837457</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="PokemonDatabaseTest - 2016.09.10 at 11h 28m 25s.xml">
+      <configuration name="PokemonDatabaseTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PokemonDatabaseTest - 2016.09.10 at 11h 37m 31s.xml">
       <configuration name="PokemonDatabaseTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -955,7 +939,8 @@
     <MESSAGE value="Test for teamcity&#10;" />
     <MESSAGE value="Add test" />
     <MESSAGE value="Update dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dependency" />
+    <MESSAGE value="Remove library" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove library" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
