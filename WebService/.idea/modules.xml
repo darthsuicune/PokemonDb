@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Database/Database.iml" filepath="$PROJECT_DIR$/../Database/Database.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../utils/db/DbUtils.iml" filepath="$PROJECT_DIR$/../../utils/db/DbUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebService.iml" filepath="$PROJECT_DIR$/WebService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../utils/db/db.iml" filepath="$PROJECT_DIR$/../../utils/db/db.iml" />
     </modules>
   </component>
 </project>
