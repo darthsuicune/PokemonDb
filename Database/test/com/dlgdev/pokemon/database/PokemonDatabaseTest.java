@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class PokemonDatabaseTest {
 	PokemonDatabase db;
@@ -16,4 +17,8 @@ public class PokemonDatabaseTest {
 		assertNotNull(mon);
 	}
 
+	@Test public void testFindFails() throws Exception {
+		Pokemon mon = db.find(0, 0);
+		assertNull(mon);
+	}
 }
