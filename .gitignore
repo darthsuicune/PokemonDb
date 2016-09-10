@@ -2,4 +2,5 @@ build
 generated
 out
 *.class
+workspace.xml
 
