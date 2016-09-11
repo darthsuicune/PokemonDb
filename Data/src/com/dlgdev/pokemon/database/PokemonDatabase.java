@@ -19,19 +19,24 @@ public class PokemonDatabase implements PokemonProvider{
 		return new Select(source)
 				.from("pokemon")
 				.where("dexNumber=?", new String[]{Integer.toString(dexNumber)})
-				.execute(this::loadPokemon);
+				.and("formNumber=?", new String[]{Integer.toString(form)})
+				.apply(this::loadPokemon);
 	}
 
 	private Pokemon loadPokemon(ResultSet set) {
 		int dexNumber = 0;
 		int formNumber = 0;
+		String name = "";
 		try {
 			set.first();
 			dexNumber = set.getInt("dexNumber");
 			formNumber = set.getInt("formNumber");
+			name = set.getString("name");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return new Pokemon(dexNumber, formNumber);
+		Pokemon pokemon = new Pokemon(dexNumber, formNumber);
+		pokemon.name = name;
+		return pokemon;
 	}
 }
