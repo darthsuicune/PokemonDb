@@ -20,7 +20,6 @@ public class PokemonDatabase implements PokemonProvider{
 				.from("pokemon")
 				.where("dexNumber=?", new String[]{Integer.toString(dexNumber)})
 				.execute(this::loadPokemon);
-//		return null;
 	}
 
 	private Pokemon loadPokemon(ResultSet set) {
