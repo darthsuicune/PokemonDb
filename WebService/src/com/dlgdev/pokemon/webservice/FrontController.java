@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet {
 	@Override protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		logger.log(Level.ALL, "Testing stuff");
-		Pokemon pokemon = provider.find(1, 0);
+		Pokemon pokemon = provider.find(1, 1);
 		resp.getWriter().write(new Gson().toJson(pokemon));
 	}
 }
