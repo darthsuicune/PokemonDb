@@ -1,5 +1,7 @@
 package com.dlgdev.pokemon.database;
 
+import com.dlgdev.utils.db.Select;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -14,11 +16,11 @@ public class PokemonDatabase implements PokemonProvider{
 	}
 
 	@Override public Pokemon find(int dexNumber, int form) {
-//		return new Select(source)
-//				.from("pokemon")
-//				.where("dexNumber=?", new String[]{Integer.toString(dexNumber)})
-//				.execute(this::loadPokemon);
-		return null;
+		return new Select(source)
+				.from("pokemon")
+				.where("dexNumber=?", new String[]{Integer.toString(dexNumber)})
+				.execute(this::loadPokemon);
+//		return null;
 	}
 
 	private Pokemon loadPokemon(ResultSet set) {
