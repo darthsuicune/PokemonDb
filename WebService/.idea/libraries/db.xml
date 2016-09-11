@@ -1,7 +1,6 @@
 <component name="libraryTable">
-  <library name="DbUtils">
+  <library name="db">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../utils/out/artifacts/DbUtils/commons-lang3-3.4.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../utils/out/artifacts/DbUtils/db.jar!/" />
     </CLASSES>
     <JAVADOC />
