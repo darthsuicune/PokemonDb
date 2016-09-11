@@ -32,10 +32,10 @@ public class DatabaseModule {
 	private void initDatabase(DataSource source) {
 		try (Connection connection = source.getConnection()) {
 			String sql =
-					"CREATE TABLE pokemon(id INTEGER PRIMARY KEY AUTO_INCREMENT, something TEXT);";
+					"CREATE TABLE IF NOT EXISTS pokemon(dexNumber INTEGER PRIMARY KEY, formNumber INTEGER);";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.execute();
-			String insert = "INSERT INTO pokemon(something) VALUES ('asdf'),('asdfasdf');";
+			String insert = "INSERT INTO pokemon(dexNumber, formNumber) VALUES ('asdf'),('asdfasdf');";
 			statement = connection.prepareStatement(insert);
 			statement.execute();
 		} catch (SQLException e) {
