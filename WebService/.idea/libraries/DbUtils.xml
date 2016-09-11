@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="DbUtils">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../utils/out/artifacts/DbUtils" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../utils/out/artifacts/DbUtils" recursive="false" />
+  </library>
+</component>
