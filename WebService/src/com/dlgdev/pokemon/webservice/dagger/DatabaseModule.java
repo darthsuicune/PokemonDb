@@ -37,10 +37,11 @@ public class DatabaseModule {
 			}
 			System.out.println("Creating table");
 			String sql =
-					"CREATE TABLE IF NOT EXISTS pokemon(dexNumber INTEGER, formNumber INTEGER, PRIMARY KEY (dexNumber, formNumber));";
+					"CREATE TABLE IF NOT EXISTS pokemon(dexNumber INTEGER, formNumber INTEGER, " +
+							"name VARCHAR(12), PRIMARY KEY (dexNumber, formNumber));";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.execute();
-			String insert = "INSERT INTO pokemon(dexNumber, formNumber) VALUES (1,1),(1,2);";
+			String insert = "INSERT INTO pokemon(dexNumber, formNumber, name) VALUES (1,1,'Bulbasaur'),(2,1,'Ivysaur');";
 			statement = connection.prepareStatement(insert);
 			statement.executeUpdate();
 		} catch (SQLException e) {
