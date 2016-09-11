@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -34,7 +35,10 @@ public class PokemonDatabaseTest {
 	}
 
 	@Test public void testFind() throws Exception {
-		Pokemon mon = db.find(0,0);
+		int dexNumber = 1;
+		when(resultSet.getInt("dexNumber")).thenReturn(dexNumber);
+		Pokemon mon = db.find(1, 1);
 		assertNotNull(mon);
+		assertEquals(mon.dexNumber, 1);
 	}
 }

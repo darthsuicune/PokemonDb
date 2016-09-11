@@ -3,6 +3,7 @@ package com.dlgdev.pokemon.database;
 import com.dlgdev.utils.db.Select;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -17,11 +18,20 @@ public class PokemonDatabase implements PokemonProvider{
 	@Override public Pokemon find(int dexNumber, int form) {
 		return new Select(source)
 				.from("pokemon")
-				.where("dexNumber=?", new String[]{"200"})
+				.where("dexNumber=?", new String[]{Integer.toString(dexNumber)})
 				.execute(this::loadPokemon);
 	}
 
 	private Pokemon loadPokemon(ResultSet set) {
-		return new Pokemon();
+		int dexNumber = 0;
+		int formNumber = 0;
+		try {
+			set.first();
+			dexNumber = set.getInt("dexNumber");
+			formNumber = set.getInt("formNumber");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return new Pokemon(dexNumber, formNumber);
 	}
 }

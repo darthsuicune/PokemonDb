@@ -7,6 +7,7 @@ import org.mariadb.jdbc.MariaDbDataSource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -31,17 +32,31 @@ public class DatabaseModule {
 
 	private void initDatabase(DataSource source) {
 		try (Connection connection = source.getConnection()) {
+			if(tableExists("pokemon", "pokemon", connection)) {
+				return;
+			}
+			System.out.println("Creating table");
 			String sql =
-					"CREATE TABLE IF NOT EXISTS pokemon(dexNumber INTEGER PRIMARY KEY, formNumber INTEGER);";
+					"CREATE TABLE IF NOT EXISTS pokemon(dexNumber INTEGER, formNumber INTEGER, PRIMARY KEY (dexNumber, formNumber));";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.execute();
-			String insert = "INSERT INTO pokemon(dexNumber, formNumber) VALUES ('asdf'),('asdfasdf');";
+			String insert = "INSERT INTO pokemon(dexNumber, formNumber) VALUES (1,1),(1,2);";
 			statement = connection.prepareStatement(insert);
-			statement.execute();
+			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error while creating database", e);
 		}
+	}
+
+	private boolean tableExists(String schemaName, String tableName, Connection connection)
+			throws SQLException {
+		String sql = "SELECT * FROM information_schema.tables WHERE table_schema=? AND table_name=? LIMIT 1;";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, schemaName);
+		statement.setString(2, tableName);
+		ResultSet set = statement.executeQuery();
+		return set.next();
 	}
 
 	@Provides MariaDbDataSource provideMariaDbDataSource() {
