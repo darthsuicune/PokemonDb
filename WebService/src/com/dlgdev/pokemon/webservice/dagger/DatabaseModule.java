@@ -36,12 +36,15 @@ public class DatabaseModule {
 				return;
 			}
 			System.out.println("Creating table");
-			String sql =
-					"CREATE TABLE IF NOT EXISTS pokemon(dexNumber INTEGER, formNumber INTEGER, " +
-							"name VARCHAR(12), PRIMARY KEY (dexNumber, formNumber));";
+			String sql = "CREATE TABLE IF NOT EXISTS pokemon(" +
+					"dexNumber INTEGER, " +
+					"formNumber INTEGER, " +
+					"name VARCHAR(12), " +
+					"PRIMARY KEY (dexNumber, formNumber));";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.execute();
-			String insert = "INSERT INTO pokemon(dexNumber, formNumber, name) VALUES (1,1,'Bulbasaur'),(2,1,'Ivysaur');";
+			String insert = "INSERT INTO pokemon(dexNumber, formNumber, name) " +
+					"VALUES (1,1,'Bulbasaur'),(2,1,'Ivysaur');";
 			statement = connection.prepareStatement(insert);
 			statement.executeUpdate();
 		} catch (SQLException e) {
