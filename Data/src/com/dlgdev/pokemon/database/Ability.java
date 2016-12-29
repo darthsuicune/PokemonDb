@@ -5,5 +5,6 @@ public class Ability {
 
 	public Ability(String name) {
 		this.name = name;
+
 	}
 }

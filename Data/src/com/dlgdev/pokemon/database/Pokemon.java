@@ -19,6 +19,11 @@ public class Pokemon {
 	public String[] evos;
 	public String prevo;
 	public String[] otherForms;
+	public String gender;
+	public int evoLevel;
+	public String baseForm;
+	public String formName;
+	public String formLetter;
 
 
 	public Pokemon(int dexNumber, int formNumber) {
