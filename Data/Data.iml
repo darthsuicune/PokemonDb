@@ -89,7 +89,18 @@
     <orderEntry type="library" name="com.google.dagger:dagger:2.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
     <orderEntry type="library" name="utils-db" level="application" />
-    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="module-library">
+      <library name="KotlinJavaRuntime">
+        <CLASSES>
+          <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime.jar!/" />
+          <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-reflect.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="TEST" name="mockito" level="project" />
     <orderEntry type="library" name="org.json:json:20080701" level="project" />
   </component>
