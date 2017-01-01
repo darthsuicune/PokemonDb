@@ -24,7 +24,8 @@
     <envs />
     <patterns />
     <method>
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="buildNeeded" externalProjectPath="$PROJECT_DIR$/.." vmOptions="" scriptParameters="" />
+      <option name="Gradle.BeforeRunTask" enabled="false" tasks="clean build" externalProjectPath="$PROJECT_DIR$/.." vmOptions="" scriptParameters="" />
+      <option name="Make" enabled="true" />
     </method>
   </configuration>
 </component>
