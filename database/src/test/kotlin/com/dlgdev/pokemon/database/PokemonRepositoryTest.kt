@@ -14,6 +14,7 @@ import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import javax.sql.DataSource
+import kotlin.test.fail
 
 class PokemonRepositoryTest {
     @Mock internal var source: DataSource? = null
@@ -42,5 +43,9 @@ class PokemonRepositoryTest {
         val mon = repo!!.find(1, 1)
         assertNotNull(mon)
         assertEquals(mon.dexNumber.toLong(), 1)
+    }
+
+    @Test fun notpassing() {
+        fail()
     }
 }

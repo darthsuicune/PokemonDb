@@ -23,6 +23,8 @@
     </option>
     <envs />
     <patterns />
-    <method />
+    <method>
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="buildNeeded" externalProjectPath="$PROJECT_DIR$/.." vmOptions="" scriptParameters="" />
+    </method>
   </configuration>
 </component>
