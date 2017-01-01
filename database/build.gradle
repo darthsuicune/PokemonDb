@@ -1,0 +1,41 @@
+group 'com.dlgdev.pokemon'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.8
+
+buildscript {
+   ext.kotlinVersion = '1.0.6'
+
+   repositories {
+       jcenter()
+   }
+
+   dependencies {
+     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+   }
+}
+
+sourceSets {
+    main.kotlin.srcDirs += 'src'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    def daggerVersion = "2.6.1"
+    def jUnitVersion = "4.12"
+    def jsonVersion = "20080701"
+
+    kapt group: 'com.google.dagger', name: 'dagger-compiler', version: "$daggerVersion"
+    compile group: 'com.google.dagger', name: 'dagger', version: "$daggerVersion"
+    compile group: "org.jetbrains.kotlin", name: "kotlin-stdlib", version: "$kotlinVersion"
+    compile group: "org.json", name:"json", version: "$jsonVersion"
+    compile files("/home/denis/workspace/utils/db/out/artifacts/utils-db/db.jar")
+
+    testCompile group: 'junit', name: 'junit', version: "$jUnitVersion"
+}

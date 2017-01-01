@@ -19,5 +19,11 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.dlgdev.pokemon.database_main" target="1.5" />
+      <module name="com.dlgdev.pokemon.database_test" target="1.5" />
+      <module name="database_main" target="1.5" />
+      <module name="database_test" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

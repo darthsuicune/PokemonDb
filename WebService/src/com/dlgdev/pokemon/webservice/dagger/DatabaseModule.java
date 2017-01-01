@@ -49,7 +49,7 @@ public class DatabaseModule {
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Error while creating database", e);
+			throw new RuntimeException("Error while creating com.dlgdev.pokemon.database", e);
 		}
 	}
 
@@ -71,7 +71,7 @@ public class DatabaseModule {
 			source.setPassword(DATABASE_PASSWORD);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Error while connecting with database", e);
+			throw new RuntimeException("Error while connecting with com.dlgdev.pokemon.database", e);
 		}
 		return source;
 	}
