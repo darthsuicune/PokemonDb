@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <resourceExtensions />
-    <wildcardResourcePatterns>
-      <entry name="!?*.java" />
-      <entry name="!?*.form" />
-      <entry name="!?*.class" />
-      <entry name="!?*.groovy" />
-      <entry name="!?*.scala" />
-      <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
-      <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
-    </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true">
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="com.dlgdev.pokemon.database_main" target="1.5" />
-      <module name="com.dlgdev.pokemon.database_test" target="1.5" />
-      <module name="com.dlgdev.pokemon_main" target="1.8" />
-      <module name="com.dlgdev.pokemon_test" target="1.8" />
-      <module name="database_main" target="1.8" />
-      <module name="database_test" target="1.8" />
-      <module name="Pokemon_main" target="1.8" />
-      <module name="Pokemon_test" target="1.8" />
-      <module name="WebService_main" target="1.8" />
-      <module name="WebService_test" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

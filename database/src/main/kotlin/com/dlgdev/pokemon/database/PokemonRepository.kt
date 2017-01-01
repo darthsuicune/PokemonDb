@@ -8,8 +8,7 @@ import java.sql.SQLException
 import javax.inject.Inject
 import javax.sql.DataSource
 
-class PokemonRepository
-@Inject constructor(internal var source: DataSource) : PokemonProvider {
+class PokemonRepository @Inject constructor(internal var source: DataSource) : PokemonProvider {
 
     override fun find(dexNumber: Int, form: Int): Pokemon {
         return Select(source)

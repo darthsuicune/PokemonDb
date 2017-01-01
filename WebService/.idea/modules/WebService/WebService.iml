@@ -5,13 +5,13 @@
     <output-test url="file://$MODULE_DIR$/../../../build/classes/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../..">
+      <sourceFolder url="file://$MODULE_DIR$/../../../generated" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../src/main/kotlin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../src/test/kotlin" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../generated" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../.." />
       <excludeFolder url="file://$MODULE_DIR$/../../../WEB-INF/classes" />
@@ -48,14 +48,5 @@
     <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.6.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.7" level="project" />
     <orderEntry type="library" name="Gradle: org.mariadb.jdbc:mariadb-java-client:1.5.2" level="project" />
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../build/generated" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>

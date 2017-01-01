@@ -2,6 +2,7 @@ group 'com.dlgdev.pokemon'
 version '0.1-SNAPSHOT'
 
 apply plugin: 'application'
+apply plugin: 'idea'
 apply from: 'dependencies.gradle'
 
 buildscript {

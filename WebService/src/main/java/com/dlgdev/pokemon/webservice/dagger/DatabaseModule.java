@@ -17,9 +17,9 @@ import dagger.Provides;
 
 @Module
 public class DatabaseModule {
-	private static final String DATABASE_NAME = "com/dlgdev/pokemon";
-	private static final String DATABASE_USER_NAME = "com/dlgdev/pokemon";
-	private static final String DATABASE_PASSWORD = "com/dlgdev/pokemon";
+	private static final String DATABASE_NAME = "pokemon";
+	private static final String DATABASE_USER_NAME = "pokemon";
+	private static final String DATABASE_PASSWORD = "pokemon";
 
 	@Provides PokemonProvider pokemonProvider(PokemonRepository db) {
 		return db;
@@ -32,7 +32,7 @@ public class DatabaseModule {
 
 	private void initDatabase(DataSource source) {
 		try (Connection connection = source.getConnection()) {
-			if(tableExists("com/dlgdev/pokemon", "com/dlgdev/pokemon", connection)) {
+			if(tableExists("pokemon", "pokemon", connection)) {
 				return;
 			}
 			System.out.println("Creating table");
@@ -49,7 +49,7 @@ public class DatabaseModule {
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Error while creating com.dlgdev.pokemon.database", e);
+			throw new RuntimeException("Error while creating database", e);
 		}
 	}
 
@@ -71,7 +71,7 @@ public class DatabaseModule {
 			source.setPassword(DATABASE_PASSWORD);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Error while connecting with com.dlgdev.pokemon.database", e);
+			throw new RuntimeException("Error while connecting with database", e);
 		}
 		return source;
 	}
