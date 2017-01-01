@@ -1,0 +1,23 @@
+group 'com.dlgdev.pokemon'
+version '0.1-SNAPSHOT'
+
+apply plugin: 'application'
+apply from: 'dependencies.gradle'
+
+buildscript {
+    def kotlinVersion = "1.0.6"
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}

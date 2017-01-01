@@ -22,8 +22,14 @@
     <bytecodeTargetLevel>
       <module name="com.dlgdev.pokemon.database_main" target="1.5" />
       <module name="com.dlgdev.pokemon.database_test" target="1.5" />
-      <module name="database_main" target="1.5" />
-      <module name="database_test" target="1.5" />
+      <module name="com.dlgdev.pokemon_main" target="1.8" />
+      <module name="com.dlgdev.pokemon_test" target="1.8" />
+      <module name="database_main" target="1.8" />
+      <module name="database_test" target="1.8" />
+      <module name="Pokemon_main" target="1.8" />
+      <module name="Pokemon_test" target="1.8" />
+      <module name="WebService_main" target="1.8" />
+      <module name="WebService_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

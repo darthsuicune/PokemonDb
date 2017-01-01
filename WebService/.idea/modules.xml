@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WebService.iml" filepath="$PROJECT_DIR$/WebService.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.dlgdev.pokemon.database.iml" filepath="$PROJECT_DIR$/.idea/modules/com.dlgdev.pokemon.database.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.dlgdev.pokemon.database_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.dlgdev.pokemon.database_main.iml" group="com.dlgdev.pokemon.database" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.dlgdev.pokemon.database_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.dlgdev.pokemon.database_test.iml" group="com.dlgdev.pokemon.database" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Pokemon.iml" filepath="$PROJECT_DIR$/.idea/modules/Pokemon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebService/WebService.iml" filepath="$PROJECT_DIR$/.idea/modules/WebService/WebService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/database/database.iml" filepath="$PROJECT_DIR$/.idea/modules/database/database.iml" />
     </modules>
   </component>
 </project>
