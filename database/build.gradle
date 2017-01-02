@@ -5,8 +5,8 @@ dependencies {
     compile runtimeDeps.dagger
     compile runtimeDeps.kotlinStdlib
     compile runtimeDeps.json
-    compile files(runtimeDeps.dbUtils)
     compile runtimeDeps.commons
+    compile files(runtimeDeps.dbUtils)
 
     testCompile testDeps.jUnit
     testCompile testDeps.mockito
