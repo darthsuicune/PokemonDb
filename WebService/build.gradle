@@ -3,7 +3,7 @@ apply plugin: 'idea'
 
 sourceSets {
     main {
-        java.srcDirs += "generated"
+        java.srcDirs += "build/generated"
         output.dir("generated")
     }
 }
