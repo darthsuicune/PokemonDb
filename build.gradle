@@ -16,7 +16,6 @@ buildscript {
     }
 }
 
-defaultTasks "clean", "build"
 allprojects {
     repositories {
         jcenter()
