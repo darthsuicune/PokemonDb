@@ -21,9 +21,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="database" />
     <orderEntry type="module-library">
-      <library>
+      <library name="Gradle: db">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../utils/db/libs/db.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../database/libs/db.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

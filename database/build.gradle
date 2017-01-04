@@ -7,6 +7,7 @@ dependencies {
     compile runtimeDeps.json
     compile runtimeDeps.commons
     //compile files(runtimeDeps.dbUtils)
+    compile files("libs/db.jar")
 
     testCompile testDeps.jUnit
     testCompile testDeps.mockito
