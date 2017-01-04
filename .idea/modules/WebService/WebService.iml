@@ -21,18 +21,18 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="database" />
     <orderEntry type="module-library">
-      <library name="Gradle: servlet-api-3.1">
+      <library>
         <CLASSES>
-          <root url="jar:///usr/share/jetty9/lib/servlet-api-3.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../utils/db/libs/db.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="Gradle: db">
+      <library name="Gradle: servlet-api-3.1">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../utils/db/out/artifacts/utils-db/db.jar!/" />
+          <root url="jar:///usr/share/jetty9/lib/servlet-api-3.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

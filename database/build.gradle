@@ -6,7 +6,7 @@ dependencies {
     compile runtimeDeps.kotlinStdlib
     compile runtimeDeps.json
     compile runtimeDeps.commons
-    compile files(runtimeDeps.dbUtils)
+    //compile files(runtimeDeps.dbUtils)
 
     testCompile testDeps.jUnit
     testCompile testDeps.mockito

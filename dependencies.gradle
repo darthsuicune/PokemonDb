@@ -1,5 +1,4 @@
 ext {
-    def kotlinVersion = '1.0.6'
     def daggerVersion = "2.6.1"
     def jsonVersion = "20080701"
     def commonsVersion = "3.4"
@@ -15,11 +14,11 @@ ext {
             servletApi    : "/usr/share/jetty9/lib/servlet-api-3.1.jar",
             gson          : "com.google.code.gson:gson:$gsonVersion",
             mariaDb       : "org.mariadb.jdbc:mariadb-java-client:$mariaDbVersion",
-            dbUtils       : "/home/user/projects/utils/db/out/artifacts/utils-db/db.jar",
+            dbUtils       : "/home/user/projects/utils/db/libs/db.jar",
     ]
 
     def jUnitVersion = "4.12"
-    def mockitoVersion = "2.4.0"
+    def mockitoVersion = "2.5.3"
     testDeps = [
             jUnit          : "junit:junit:$jUnitVersion",
             mockito        : "org.mockito:mockito-core:$mockitoVersion",
