@@ -16,10 +16,16 @@ buildscript {
     }
 }
 
-defaultTasks "clean", "build"
+defaultTasks "clean", "buildWithPrint"
 
 allprojects {
     repositories {
         jcenter()
+    }
+}
+
+task buildWithPrint {
+    doFirst {
+        println 'Testing stuff'
     }
 }
