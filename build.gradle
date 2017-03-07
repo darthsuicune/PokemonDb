@@ -5,7 +5,7 @@ apply plugin: 'idea'
 apply from: 'dependencies.gradle'
 
 buildscript {
-    ext.kotlinVersion = "1.0.6"
+    ext.kotlinVersion = "1.1.0"
 
     repositories {
         jcenter()
