@@ -1,9 +1,3 @@
-build
-generated
-out
-*.class
-workspace.xml
-.gradle
 ### Gradle template
 build/
 
@@ -60,7 +54,6 @@ hs_err_pid*
 *.iws
 
 ## Plugin-specific files:
-
 # IntelliJ
 /out/
 
@@ -75,3 +68,7 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+## Other
+#Make sure the dependencies for the web *are* in vcs
+!WEB-INF/lib/*.jar
