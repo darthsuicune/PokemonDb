@@ -1,11 +1,8 @@
 group 'com.dlgdev.pokemon'
 version '0.1-SNAPSHOT'
 
-apply plugin: 'idea'
-apply from: 'dependencies.gradle'
-
 buildscript {
-    ext.kotlinVersion = "1.1.0"
+    ext.kotlinVersion = "1.1.2-2"
 
     repositories {
         jcenter()
@@ -16,16 +13,55 @@ buildscript {
     }
 }
 
-defaultTasks "clean", "buildWithPrint"
+ext {
+    def daggerVersion = "2.10"
+
+    compileDeps = [
+            daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
+    ]
+
+    def jsonVersion = "20080701"
+    def commonsVersion = "3.4"
+    def gsonVersion = "2.7"
+    def mariaDbVersion = "1.5.2"
+
+    runtimeDeps = [
+            dagger        : "com.google.dagger:dagger:$daggerVersion",
+            kotlinStdlib  : "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion",
+            json          : "org.json:json:$jsonVersion",
+            commons       : "org.apache.commons:commons-lang3:$commonsVersion",
+            servletApi    : "/usr/share/jetty9/lib/servlet-api-3.1.jar",
+            gson          : "com.google.code.gson:gson:$gsonVersion",
+            mariaDb       : "org.mariadb.jdbc:mariadb-java-client:$mariaDbVersion",
+    ]
+
+    def jUnitVersion = "4.12"
+    def mockitoVersion = "2.8.8"
+    testDeps = [
+            jUnit          : "junit:junit:$jUnitVersion",
+            mockito        : "org.mockito:mockito-core:$mockitoVersion",
+            kotlinTest     : "org.jetbrains.kotlin:kotlin-test:$kotlinVersion",
+            kotlinTestJunit: "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    ]
+}
+
+defaultTasks "clean", "build"
 
 allprojects {
+    apply plugin: "kotlin"
+    apply plugin: "kotlin-kapt"
     repositories {
         jcenter()
     }
-}
 
-task buildWithPrint {
-    doFirst {
-        println 'Testing stuff'
+    dependencies {
+        kapt compileDeps.daggerCompiler
+        compile runtimeDeps.dagger
+        compile runtimeDeps.kotlinStdlib
+
+        testCompile testDeps.jUnit
+        testCompile testDeps.mockito
+        testCompile testDeps.kotlinTest
+        testCompile testDeps.kotlinTestJunit
     }
 }

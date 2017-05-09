@@ -1,16 +1,7 @@
 apply plugin: 'kotlin'
 
 dependencies {
-    kapt runtimeDeps.daggerCompiler
-    compile runtimeDeps.dagger
-    compile runtimeDeps.kotlinStdlib
     compile runtimeDeps.json
     compile runtimeDeps.commons
-    //compile files(runtimeDeps.dbUtils)
-    compile files("libs/db.jar")
-
-    testCompile testDeps.jUnit
-    testCompile testDeps.mockito
-    testCompile testDeps.kotlinTest
-    testCompile testDeps.kotlinTestJunit
+    compile fileTree(dir: "libs", include: "*.jar")
 }

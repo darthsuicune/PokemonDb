@@ -1,24 +1,15 @@
-apply plugin: "kotlin"
 apply plugin: 'idea'
 
 sourceSets {
     main {
-        java.srcDirs += "build/generated"
-        output.dir("generated")
+        java.srcDirs += "build/generated/"
+        output.classesDir("WEB-INF/classes")
     }
 }
+
 dependencies {
     compile project(":database")
-    kapt runtimeDeps.daggerCompiler
-    compile runtimeDeps.dagger
-    compile runtimeDeps.kotlinStdlib
     compile runtimeDeps.gson
     compile files(runtimeDeps.servletApi)
     compile runtimeDeps.mariaDb
-
-    testCompile testDeps.jUnit
-}
-
-kapt {
-    generateStubs = true
 }

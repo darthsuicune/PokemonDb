@@ -16,30 +16,31 @@ import java.sql.ResultSet
 import javax.sql.DataSource
 
 class PokemonRepositoryTest {
-    @Mock internal var source: DataSource? = null
-    @Mock internal var connection: Connection? = null
-    @Mock internal var statement: PreparedStatement? = null
-    @Mock internal var resultSet: ResultSet? = null
+    @Mock lateinit internal var source: DataSource
+    @Mock lateinit internal var connection: Connection
+    @Mock lateinit internal var statement: PreparedStatement
+    @Mock lateinit internal var resultSet: ResultSet
 
-    var repo: PokemonRepository? = null
+    lateinit var repo: PokemonRepository
+
     @Before @Throws(Exception::class)
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        repo = PokemonRepository(source!!)
+        repo = PokemonRepository(source)
 
-        `when`(source!!.connection).thenReturn(connection)
-        `when`(connection!!.prepareStatement(anyString())).thenReturn(statement)
+        `when`(source.connection).thenReturn(connection)
+        `when`(connection.prepareStatement(anyString())).thenReturn(statement)
         doNothing().`when`<PreparedStatement>(statement).setString(anyInt(), anyString())
-        `when`(statement!!.executeQuery()).thenReturn(resultSet)
+        `when`(statement.executeQuery()).thenReturn(resultSet)
     }
 
     @Test @Throws(Exception::class)
     fun testFind() {
         val dexNumber = 1
-        `when`(resultSet!!.getInt("dexNumber")).thenReturn(dexNumber)
-        `when`(resultSet!!.getInt("formNumber")).thenReturn(0)
-        `when`(resultSet!!.getString("name")).thenReturn("asdf")
-        val mon = repo!!.find(1, 1)
+        `when`(resultSet.getInt("dexNumber")).thenReturn(dexNumber)
+        `when`(resultSet.getInt("formNumber")).thenReturn(0)
+        `when`(resultSet.getString("name")).thenReturn("asdf")
+        val mon = repo.find(1, 1)
         assertNotNull(mon)
         assertEquals(mon.dexNumber.toLong(), 1)
     }
