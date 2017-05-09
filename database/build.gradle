@@ -3,5 +3,5 @@ apply plugin: 'kotlin'
 dependencies {
     compile runtimeDeps.json
     compile runtimeDeps.commons
-    compile fileTree(dir: "libs", include: "*.jar")
+    compile fileTree(dir: "lib", include: "*.jar")
 }

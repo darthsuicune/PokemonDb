@@ -1,7 +1,6 @@
 package com.dlgdev.pokemon.database
 
 import com.dlgdev.utils.db.Select
-
 import java.sql.ResultSet
 import java.sql.SQLException
 

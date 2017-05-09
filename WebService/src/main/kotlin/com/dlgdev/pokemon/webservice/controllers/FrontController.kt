@@ -1,4 +1,4 @@
-package com.dlgdev.pokemon.webservice
+package com.dlgdev.pokemon.webservice.controllers
 
 import com.dlgdev.pokemon.webservice.dagger.DaggerFrontControllerComponent
 import java.io.IOException
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse
 @WebServlet(urlPatterns = arrayOf("/*"))
 class FrontController : HttpServlet() {
     @Inject lateinit var logger: Logger
-    @Inject lateinit var controller: BaseController
+    @Inject lateinit var controllerFactory: ControllerFactory
 
     @Throws(ServletException::class)
     override fun init() {
@@ -24,6 +24,6 @@ class FrontController : HttpServlet() {
 
     @Throws(ServletException::class, IOException::class)
     override fun service(req: HttpServletRequest, resp: HttpServletResponse) {
-        controller.process()
+        controllerFactory.get(req).process()
     }
 }
