@@ -21,4 +21,8 @@ class Pokemon(val dexNumber: Int, val formNumber: Int) {
     var baseForm: String? = null
     var formName: String? = null
     var formLetter: String? = null
+
+    override fun toString(): String {
+        return "Pokemon: $name"
+    }
 }

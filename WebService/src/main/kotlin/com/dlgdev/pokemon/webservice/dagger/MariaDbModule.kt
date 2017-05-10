@@ -10,7 +10,7 @@ import java.sql.SQLException
 import javax.sql.DataSource
 
 @Module
-class DatabaseModule {
+class MariaDbModule {
 
     @Provides fun pokemonProvider(db: PokemonRepository): PokemonProvider {
         return db

@@ -1,7 +1,15 @@
 apply plugin: 'kotlin'
 
+
+sourceSets {
+    main {
+        output.classesDir("../WebService/WEB-INF/classes")
+    }
+}
+
 dependencies {
     compile runtimeDeps.json
     compile runtimeDeps.commons
     compile fileTree(dir: "lib", include: "*.jar")
 }
+

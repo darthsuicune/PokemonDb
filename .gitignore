@@ -1,6 +1,7 @@
 ## Other
 #Make sure the dependencies for the web *are* in vcs
-!WebService/WEB-INF/lib
+!WebService/WEB-INF/lib/
+#The classes on the same folder should *not* be in vcs, it's compiled code.
 WebService/WEB-INF/classes
 
 ### Gradle template
@@ -41,6 +42,3 @@ hs_err_pid*
 ## Plugin-specific files:
 # IntelliJ
 /out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
