@@ -14,6 +14,7 @@ class GoController @Inject constructor(val provider: PokemonProvider): BaseContr
         val mon = provider.find(1,1)
         println(mon)
         return object: Output {
+            override var page = action.page
             override lateinit var result: Any
             override var status = 200
         }

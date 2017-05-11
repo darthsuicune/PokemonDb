@@ -34,8 +34,14 @@ class FrontController : HttpServlet() {
 
     @Throws(ServletException::class, IOException::class)
     override fun service(req: HttpServletRequest, resp: HttpServletResponse) {
-        val output = controllerFactory.get(req).process()
-        resp.status = output.status
-        resp.writer.write(gson.toJson(output.result))
+        try {
+            println(req.pathInfo)
+            val output = controllerFactory.get(req).process()
+            req.session.setAttribute("output", gson.toJson(output.result))
+            println("forwarding ${output.result} to ${output.page}")
+            req.getRequestDispatcher("/WEB-INF/${output.page}.jsp").forward(req, resp)
+        } catch (e: RuntimeException) {
+
+        }
     }
 }

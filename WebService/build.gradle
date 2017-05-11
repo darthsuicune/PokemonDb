@@ -1,3 +1,9 @@
+sourceSets {
+    main {
+        output.classesDir = "${rootProject.projectDir}/WebService/WEB-INF/classes"
+    }
+}
+
 dependencies {
     compile (
             project(":database"),
@@ -6,3 +12,5 @@ dependencies {
             runtimeDeps.mariaDb
     )
 }
+
+tasks.findByName("jar").enabled = false

@@ -20,26 +20,42 @@ class ControllerFactory @Inject constructor(
             Pair("dex", dexAction)
     )
 
+    private lateinit var controller: BaseController
+
     fun get(req: HttpServletRequest): BaseController {
-        val requestBits = req.requestURI.split("/")
-        var controllerIndex = 1
-        var requestedController = requestBits[controllerIndex]
+        //Drop 1 for the initial / passed to the method
+        val requestBits = req.requestURI.drop(1).split("/")
+        val controllerIndex = getController(requestBits)
+        val actionIndex = getAction(requestBits, controllerIndex + 1)
+        if (requestBits.size > actionIndex + 1) {
+            val parameters = requestBits.slice(actionIndex + 1..requestBits.size)
+            controller.action.setParameters(parameters)
+        }
+        return controller
+    }
+
+    private fun getAction(requestBits: List<String>, i: Int): Int {
+        val requestedAction = requestBits[i]
+        if (requestedAction !in actions.keys) {
+            throw RuntimeException("$requestedAction is not a valid action")
+        }
+        controller.action = actions[requestedAction]!!
+        return i
+    }
+
+    private fun getController(requestBits: List<String>): Int {
+        var index = 0
+        val requestedController = requestBits[index]
         if (requestedController !in controllers.keys) {
             if (requestedController in actions.keys) {
-                requestedController = "mainGames"
-                controllerIndex--
+                controller = controllers["mainGames"]!!
+                return --index
             } else {
                 throw RuntimeException("$requestedController is not a valid controller")
             }
         }
-        val actionIndex = controllerIndex + 1
-        val requestedAction = requestBits[actionIndex]
-        if (requestedAction !in actions.keys) {
-            throw RuntimeException("$requestedAction is not a valid action")
-        }
-        val controller = controllers[requestedController]!!
-        controller.action = actions[requestedAction]!!
-        return controller
+        controller = controllers[requestBits[index]]!!
+        return index
     }
 }
 

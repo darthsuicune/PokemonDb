@@ -44,7 +44,7 @@ ext {
     ]
 }
 
-defaultTasks "clean", "build"
+defaultTasks "clean", ":WebService:build", ":database:copyJar"
 
 allprojects {
     apply plugin: "kotlin"
@@ -53,7 +53,6 @@ allprojects {
     sourceSets {
         main {
             java.srcDirs += "$buildDir/generated/source/kapt/main"
-            output.classesDir = "${rootProject.projectDir}/WebService/WEB-INF/classes"
         }
     }
 
@@ -75,4 +74,11 @@ allprojects {
                 testDeps.kotlinTestJunit
         )
     }
+
+    task copyJar (type: Copy, dependsOn: ":build") {
+        from "$buildDir/libs"
+        into "../WebService/WEB-INF/lib"
+    }
 }
+
+tasks.findByName("jar").enabled = false

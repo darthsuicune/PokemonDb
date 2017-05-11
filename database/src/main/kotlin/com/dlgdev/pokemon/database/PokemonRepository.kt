@@ -18,20 +18,18 @@ class PokemonRepository @Inject constructor(internal var source: DataSource) : P
     }
 
     private fun loadPokemon(set: ResultSet): Pokemon {
-        var dexNumber = 0
-        var formNumber = 0
-        var name = ""
         try {
             set.first()
-            dexNumber = set.getInt("dexNumber")
-            formNumber = set.getInt("formNumber")
-            name = set.getString("name")
+            val dexNumber = set.getInt("dexNumber")
+            val formNumber = set.getInt("formNumber")
+            val name = set.getString("name")
+
+            val pokemon = Pokemon(dexNumber, formNumber)
+            pokemon.name = name
+            return pokemon
         } catch (e: SQLException) {
             e.printStackTrace()
+            throw RuntimeException("Pokemon not found")
         }
-
-        val pokemon = Pokemon(dexNumber, formNumber)
-        pokemon.name = name
-        return pokemon
     }
 }

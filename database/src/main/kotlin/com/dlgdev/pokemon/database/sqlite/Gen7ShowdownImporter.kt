@@ -39,12 +39,12 @@ class Gen7ShowdownImporter @Inject constructor(val dao: PokemonDao) : ShowdownIm
 
     private fun read(input: JSONObject): MutableList<Pokemon> {
         val list = ArrayList<Pokemon>()
-        var forms: MutableMap<Int, Int> = HashMap()
+        val forms: MutableMap<Int, Int> = HashMap()
         input.keys().forEach { key ->
-            var pokemon: JSONObject = input.getJSONObject(key as String?)
+            val pokemon: JSONObject = input.getJSONObject(key as String?)
             val dexNumber: Int = pokemon.getInt(DEX_NUMBER)
 
-            var formNumber: Int = if (pokemon.has(BASE_SPECIES)) {
+            val formNumber: Int = if (pokemon.has(BASE_SPECIES)) {
                 if (forms.containsKey(dexNumber)) {
                     forms[dexNumber] = forms[dexNumber]!! + 1
                 } else {
@@ -54,7 +54,7 @@ class Gen7ShowdownImporter @Inject constructor(val dao: PokemonDao) : ShowdownIm
             } else {
                 0
             }
-            var poke: Pokemon = Pokemon(dexNumber, formNumber)
+            val poke: Pokemon = Pokemon(dexNumber, formNumber)
             //Available for all mons
             poke.name = pokemon.getString(SPECIES)
             poke.names.put("English", poke.name)

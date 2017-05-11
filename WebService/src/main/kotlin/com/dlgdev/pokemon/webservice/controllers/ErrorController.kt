@@ -11,7 +11,12 @@ class ErrorController @Inject constructor() : BaseController {
     var errorCode = 200
 
     override fun process(): Output {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return object : Output {
+            override var status = 400
+            override var result = Any()
+            override var page = "400"
+
+        }
     }
 
 }
