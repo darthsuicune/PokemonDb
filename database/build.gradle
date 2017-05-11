@@ -1,6 +1,8 @@
 dependencies {
-    compile runtimeDeps.json
-    compile runtimeDeps.commons
-    compile fileTree(dir: "lib", include: "*.jar")
+    compile(
+            fileTree(dir: "lib", include: "*.jar"),
+            runtimeDeps.json,
+            runtimeDeps.commons
+    )
 }
 

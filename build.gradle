@@ -47,6 +47,9 @@ ext {
 defaultTasks "clean", "build"
 
 allprojects {
+    apply plugin: "kotlin"
+    apply plugin: "kotlin-kapt"
+
     sourceSets {
         main {
             java.srcDirs += "$buildDir/generated/source/kapt/main"
