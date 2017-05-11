@@ -1,15 +1,8 @@
-apply plugin: 'idea'
-
-sourceSets {
-    main {
-        java.srcDirs += "build/generated/"
-        output.classesDir("WEB-INF/classes")
-    }
-}
-
 dependencies {
-    compile project(":database")
-    compile runtimeDeps.gson
-    compile files(runtimeDeps.servletApi)
-    compile runtimeDeps.mariaDb
+    compile (
+            project(":database"),
+            files(runtimeDeps.servletApi),
+            runtimeDeps.gson,
+            runtimeDeps.mariaDb
+    )
 }
