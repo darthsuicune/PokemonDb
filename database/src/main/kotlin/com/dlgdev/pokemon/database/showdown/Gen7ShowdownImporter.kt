@@ -1,4 +1,4 @@
-package com.dlgdev.pokemon.database.sqlite
+package com.dlgdev.pokemon.database.showdown
 
 import com.dlgdev.pokemon.database.Pokemon
 import com.dlgdev.pokemon.database.Ability

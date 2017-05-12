@@ -1,4 +1,4 @@
-package com.dlgdev.pokemon.database.sqlite
+package com.dlgdev.pokemon.database.showdown
 
 import org.json.JSONObject
 

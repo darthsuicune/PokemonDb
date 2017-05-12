@@ -28,7 +28,7 @@ class ControllerFactory @Inject constructor(
         val controllerIndex = getController(requestBits)
         val actionIndex = getAction(requestBits, controllerIndex + 1)
         if (requestBits.size > actionIndex + 1) {
-            val parameters = requestBits.slice(actionIndex + 1..requestBits.size)
+            val parameters = requestBits.slice(actionIndex + 1..requestBits.size - 1)
             controller.action.setParameters(parameters)
         }
         return controller

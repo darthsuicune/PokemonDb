@@ -1,6 +1,6 @@
 sourceSets {
     main {
-        output.classesDir = "${rootProject.projectDir}/WebService/WEB-INF/classes"
+        output.classesDir = "${rootProject.projectDir}/WebService/web/WEB-INF/classes"
     }
 }
 

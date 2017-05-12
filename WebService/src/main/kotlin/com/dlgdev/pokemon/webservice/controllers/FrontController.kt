@@ -39,9 +39,9 @@ class FrontController : HttpServlet() {
             val output = controllerFactory.get(req).process()
             req.session.setAttribute("output", gson.toJson(output.result))
             println("forwarding ${output.result} to ${output.page}")
-            req.getRequestDispatcher("/WEB-INF/${output.page}.jsp").forward(req, resp)
+            req.getRequestDispatcher("/jsps/${output.page}.jsp").forward(req, resp)
         } catch (e: RuntimeException) {
-
+            e.printStackTrace()
         }
     }
 }
