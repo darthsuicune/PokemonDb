@@ -1,3 +1,3 @@
 rootProject.name = 'Pokemon'
 
-include ":database",":WebService"
+include ":models", ":database",":WebService"

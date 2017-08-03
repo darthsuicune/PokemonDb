@@ -25,13 +25,13 @@ ext {
     def mariaDbVersion = "1.5.2"
 
     runtimeDeps = [
-            dagger      : "com.google.dagger:dagger:$daggerVersion",
-            kotlinStdlib: "org.jetbrains.kotlin:kotlin-stdlib-jre8",
-            json        : "org.json:json:$jsonVersion",
-            commons     : "org.apache.commons:commons-lang3:$commonsVersion",
-            servletApi  : "/usr/share/jetty9/lib/servlet-api-3.1.jar",
-            gson        : "com.google.code.gson:gson:$gsonVersion",
-            mariaDb     : "org.mariadb.jdbc:mariadb-java-client:$mariaDbVersion",
+            dagger          : "com.google.dagger:dagger:$daggerVersion",
+            kotlinStdlib    : "org.jetbrains.kotlin:kotlin-stdlib-jre8",
+            json            : "org.json:json:$jsonVersion",
+            commons         : "org.apache.commons:commons-lang3:$commonsVersion",
+            servletApi      : "/usr/share/jetty9/lib/servlet-api-3.1.jar",
+            gson            : "com.google.code.gson:gson:$gsonVersion",
+            mariaDb         : "org.mariadb.jdbc:mariadb-java-client:$mariaDbVersion",
     ]
 
     def jUnitVersion = "4.12"
@@ -75,7 +75,7 @@ allprojects {
         )
     }
 
-    task copyJar (type: Copy, dependsOn: ":build") {
+    task copyJar(type: Copy, dependsOn: ":build") {
         from "$buildDir/libs"
         into "../WebService/WEB-INF/lib"
     }

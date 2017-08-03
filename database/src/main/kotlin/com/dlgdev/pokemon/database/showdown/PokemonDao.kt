@@ -1,6 +1,6 @@
 package com.dlgdev.pokemon.database.showdown
 
-import com.dlgdev.pokemon.database.Pokemon
+import com.dlgdev.pokemon.database.models.Pokemon
 import javax.inject.Inject
 import javax.sql.DataSource
 

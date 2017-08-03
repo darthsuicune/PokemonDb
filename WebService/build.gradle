@@ -7,6 +7,7 @@ sourceSets {
 dependencies {
     compile (
             project(":database"),
+            project(":models"),
             files(runtimeDeps.servletApi),
             runtimeDeps.gson,
             runtimeDeps.mariaDb

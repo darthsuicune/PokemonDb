@@ -1,6 +1,7 @@
 dependencies {
     compile(
             fileTree(dir: "lib", include: "*.jar"),
+            project(":models"),
             runtimeDeps.json,
             runtimeDeps.commons
     )
