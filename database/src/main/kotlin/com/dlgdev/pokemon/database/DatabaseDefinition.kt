@@ -1,6 +1,5 @@
 package com.dlgdev.pokemon.database
 
-import com.dlgdev.utils.db.Create
 import com.dlgdev.utils.db.Create.*
 
 class DatabaseDefinition {
@@ -8,13 +7,10 @@ class DatabaseDefinition {
     object Pokemon {
         val TABLE_NAME = "pokemon"
         val ID = "pokemon_id"
-        val POKEMON_DEX_NUMBER = "dex_number"
+        val DEX_NUMBER = "dex_number"
         val FORM = "form"
 
-        val fields = mapOf(Pair(ID, "INTEGER PRIMARY KEY AUTOINCREMENT"),
-                Pair(POKEMON_DEX_NUMBER, "INTEGER NOT NULL"),
-                Pair(FORM, "INTEGER NOT NULL"))
-        val uniqueKey = "$POKEMON_DEX_NUMBER,$FORM"
+        val uniqueKey = "$DEX_NUMBER,$FORM"
     }
 
     object PokemonData {
@@ -147,7 +143,6 @@ class DatabaseDefinition {
 
         val primaryKey = ID
     }
-
     object Attacks {
         val TABLE_NAME = "attacks"
         val ID = "attack_id"

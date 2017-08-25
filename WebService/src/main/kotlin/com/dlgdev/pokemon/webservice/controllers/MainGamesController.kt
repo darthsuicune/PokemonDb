@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class MainGamesController @Inject constructor() : BaseController {
     override fun process(): Output {
-        var actionResult = action.perform()
-        var result = object: Output {
+        val actionResult = action.perform()
+        val result = object: Output {
             override var page = action.page
             override lateinit var result: Any
             override var status = 200

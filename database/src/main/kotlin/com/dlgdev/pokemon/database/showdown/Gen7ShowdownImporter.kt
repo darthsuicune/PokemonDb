@@ -1,7 +1,7 @@
 package com.dlgdev.pokemon.database.showdown
 
-import com.dlgdev.pokemon.database.Pokemon
-import com.dlgdev.pokemon.database.Ability
+import com.dlgdev.pokemon.database.models.*
+import map
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
@@ -57,41 +57,53 @@ class Gen7ShowdownImporter @Inject constructor(val dao: PokemonDao) : ShowdownIm
             val poke: Pokemon = Pokemon(dexNumber, formNumber)
             //Available for all mons
             poke.name = pokemon.getString(SPECIES)
-            poke.names.put("English", poke.name)
             poke.baseStats = baseStats(pokemon.getJSONObject(BASE_STATS))
-            poke.types = stringsFromArray(pokemon.getJSONArray(TYPES))
+            poke.types = typesFromArray(pokemon.getJSONArray(TYPES))
             poke.abilities = abilities(pokemon.getJSONObject(ABILITIES))
-            poke.eggGroups = stringsFromArray(pokemon.getJSONArray(EGG_GROUPS))
-            poke.height = pokemon.getDouble(HEIGHT)
-            poke.weight = pokemon.getDouble(WEIGHT)
-            poke.color = if (pokemon.has(COLOR)) pokemon.getString(COLOR) else null
+            poke.eggGroups = eggGroupsFromArray(pokemon.getJSONArray(EGG_GROUPS))
+            PokemonData(
+                    pokemon.getString(HEIGHT),
+                    pokemon.getString(WEIGHT),
+                    if (pokemon.has(COLOR)) pokemon.getString(COLOR) else null,
+                    if (pokemon.has(GENDER_RATIO)) { genderRatio(pokemon.getJSONObject(GENDER_RATIO)) } else null
+            )
 
             //Only available for some mons
-            poke.genderRatio = if (pokemon.has(GENDER_RATIO)) {
-                genderRatios(pokemon.getJSONObject(GENDER_RATIO))
-            } else DoubleArray(2)
-            poke.gender = if (pokemon.has(GENDER)) pokemon.getString(GENDER) else null
-            poke.evos = if (pokemon.has(EVOS)) stringsFromArray(pokemon.getJSONArray(EVOS)) else emptyArray()
-            poke.prevo = if (pokemon.has(PREVO)) pokemon.getString(PREVO) else null
-            poke.otherForms = if (pokemon.has(OTHER_FORMS)) {
-                stringsFromArray(pokemon.getJSONArray(OTHER_FORMS))
-            } else emptyArray()
-            poke.evoLevel = if (pokemon.has(EVO_LEVEL)) pokemon.getInt(EVO_LEVEL) else -1
-            poke.baseForm = if (pokemon.has(BASE_FORM)) pokemon.getString(BASE_FORM) else null
-            poke.formName = if (pokemon.has(FORM_NAME)) pokemon.getString(FORM_NAME) else null
-            poke.formLetter = if (pokemon.has(FORM_LETTER)) pokemon.getString(FORM_LETTER) else null
+
+            poke.evolutions = if (pokemon.has(EVOS)) evolutionsFromArray(pokemon.getJSONArray(EVOS)) else emptyArray()
+//            poke.otherForms = if (pokemon.has(OTHER_FORMS)) {
+//                stringsFromArray(pokemon.getJSONArray(OTHER_FORMS))
+//            } else emptyArray()
+//            poke.baseForm = if (pokemon.has(BASE_FORM)) pokemon.getString(BASE_FORM) else null
+//            poke.formName = if (pokemon.has(FORM_NAME)) pokemon.getString(FORM_NAME) else null
+//            poke.formLetter = if (pokemon.has(FORM_LETTER)) pokemon.getString(FORM_LETTER) else null
+//            poke.evoLevel = if (pokemon.has(EVO_LEVEL)) pokemon.getInt(EVO_LEVEL) else -1
+//            poke.gender = if (pokemon.has(GENDER)) pokemon.getString(GENDER) else null
+//            poke.prevo = if (pokemon.has(PREVO)) pokemon.getString(PREVO) else null
             list.add(poke)
         }
 
         return list
     }
 
-    private fun genderRatios(genderRatios: JSONObject): DoubleArray {
-        return doubleArrayOf(genderRatios.getDouble("F"), genderRatios.getDouble("M"))
+    private fun evolutionsFromArray(evosArray: JSONArray): Array<Evolution> {
+        return evosArray.map { it -> Evolution(0,0,"","",false) }.toTypedArray()
     }
 
-    private fun baseStats(baseStats: JSONObject): IntArray {
-        return intArrayOf(baseStats.getInt("hp"),
+    private fun eggGroupsFromArray(eggGroupsArray: JSONArray): Array<EggGroup> {
+        return eggGroupsArray.map { it -> EggGroup(it.getString("name")) }.toTypedArray()
+    }
+
+    private fun typesFromArray(typesArray: JSONArray): Array<Type> {
+        return typesArray.map { it -> Type() }.toTypedArray()
+    }
+
+    private fun genderRatio(genderRatios: JSONObject): String {
+        return genderRatios.getString("M")
+    }
+
+    private fun baseStats(baseStats: JSONObject): BaseStats {
+        return BaseStats(baseStats.getInt("hp"),
                 baseStats.getInt("atk"),
                 baseStats.getInt("def"),
                 baseStats.getInt("spa"),

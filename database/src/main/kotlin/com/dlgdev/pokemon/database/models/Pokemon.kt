@@ -1,14 +1,13 @@
 package com.dlgdev.pokemon.database.models
 
-class Pokemon(val id: Int, val dexNumber: Int, val formNumber: Int) {
+class Pokemon(val dexNumber: Int, val formNumber: Int,val id: Long = -1) {
     var name: String = ""
     var data: PokemonData = PokemonData("0.0", "0.0", "None", "0.0")
-    var evolutions: Evolutions? = null
-    var baseStats = BaseStats()
+    var evolutions = emptyArray<Evolution>()
+    var baseStats = BaseStats(1,1,1,1,1,1)
     var types = emptyArray<Type>()
-    var abilities = emptyArray<Ability>()
+    var abilities = emptyArray<Ability?>()
     var eggGroups = emptyArray<EggGroup>()
-    var evos = emptyArray<String?>()
 
     override fun toString(): String {
         return "Pokemon: $name"
@@ -23,22 +22,28 @@ class Pokemon(val id: Int, val dexNumber: Int, val formNumber: Int) {
     }
 
     fun color(): String {
-        return data.color
+        return data.color ?: "None"
     }
 
     fun maleRatio(): String {
-        return data.maleRatio
+        return data.maleRatio ?: "N/A"
     }
 
     fun femaleRatio(): String {
-        return (1.0 - data.maleRatio.toDouble()).toString()
+        if(data.maleRatio != null) {
+            return (1.0 - data.maleRatio!!.toDouble()).toString()
+        } else {
+            return "N/A"
+        }
+
     }
 }
 
-class BaseStats
+class BaseStats(val hp: Int, val atk: Int, val def: Int, val spatk: Int, val spdef: Int, val speed: Int)
 
-class PokemonData(val height: String, val weight: String, val color: String, val maleRatio: String)
+class PokemonData(val height: String, val weight: String, val color: String?, val maleRatio: String?)
 
-class Evolutions
+class Evolution(val from: Long, val to: Long, val evolutionMethod: String, val evolutionPoint: String,
+                val isMega: Boolean)
 
-class EggGroup
+class EggGroup(val name: String)
