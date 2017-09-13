@@ -34,14 +34,14 @@ class DatabaseDefinition {
 
     object Evolutions {
         val TABLE_NAME = "evolutions"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val FROM = "pokemon_from"
         val TO = "pokemon_to"
         val EVOLUTION_METHOD = "evolutionmethod"
         val EVOLUTION_POINT = "evolutionpoint"
         val IS_MEGA = "ismega"
 
-        val fields = mapOf(Pair(GEN, "INTEGER"),
+        val fields = mapOf(Pair(GAME, "INTEGER"),
                 Pair(FROM, "INTEGER"),
                 Pair(TO, "INTEGER"),
                 Pair(EVOLUTION_METHOD, "TEXT"),
@@ -51,8 +51,8 @@ class DatabaseDefinition {
         val primaryKey = "$FROM, $TO"
         val foreignKeys = listOf(ForeignKey(FROM,Pokemon.TABLE_NAME,Pokemon.ID),
                 ForeignKey(TO,Pokemon.TABLE_NAME,Pokemon.ID),
-                ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID))
-        val indexes = listOf(GEN, FROM, TO)
+                ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
+        val indexes = listOf(GAME, FROM, TO)
     }
 
     object PokemonNames {
@@ -70,7 +70,7 @@ class DatabaseDefinition {
     object PokemonBaseStats {
         val TABLE_NAME = "pokemonbasestats"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen"
+        val GAME = "game_id"
         val HP = "hp"
         val ATK = "atk"
         val DEF = "def"
@@ -78,61 +78,71 @@ class DatabaseDefinition {
         val SPDEF = "spdef"
         val SPEED = "speed"
 
-        val primaryKey = "$POKEMON_ID, $GEN"
+        val primaryKey = "$POKEMON_ID, $GAME"
         val foreignKeys = listOf(ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
-                ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID))
+                ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
     }
 
     object PokemonTypes {
         val TABLE_NAME = "pokemontypes"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen"
+        val GAME = "game_id"
         val TYPE_1 = "type1"
         val TYPE_2 = "type2"
 
-        val primaryKey = "$POKEMON_ID, $GEN"
+        val primaryKey = "$POKEMON_ID, $GAME"
         val foreignKeys = listOf(ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
-                ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID))
-        val indexes = listOf(TYPE_1, TYPE_2, GEN)
+                ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
+        val indexes = listOf(TYPE_1, TYPE_2, GAME)
 
     }
 
     object PokemonAbilities {
         val TABLE_NAME = "pokemonabilities"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen"
+        val GAME = "game_id"
         val ABILITY_1 = "ability1"
         val ABILITY_2 = "ability2"
         val ABILITY_HIDDEN = "ability3"
 
-        val primaryKey = "$POKEMON_ID, $GEN"
+        val primaryKey = "$POKEMON_ID, $GAME"
         val foreignKeys = listOf(ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
-                ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID))
-        val indexes = listOf(ABILITY_1, ABILITY_2, ABILITY_HIDDEN, GEN)
+                ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
+        val indexes = listOf(ABILITY_1, ABILITY_2, ABILITY_HIDDEN, GAME)
     }
 
     object Abilities {
         val TABLE_NAME = "abilities"
         val ABILITY_ID = "ability_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val NAME = "ability_name"
         val DESCRIPTION = "description"
         val LANGUAGE = "language"
 
         val primaryKey = "$ABILITY_ID, $LANGUAGE"
-        val foreignKeys = listOf(ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID))
-        val indexes = listOf(NAME, GEN)
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
+        val indexes = listOf(NAME, GAME)
     }
 
     object PokemonEggGroups {
         val TABLE_NAME = "pokemonegggroups"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val EGG_GROUP = "egg_group"
 
-        val primaryKey = "$POKEMON_ID, $GEN, $EGG_GROUP"
-        val foreignKeys = listOf(ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID))
-        val indexes = listOf(EGG_GROUP, GEN)
+        val primaryKey = "$POKEMON_ID, $GAME, $EGG_GROUP"
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
+        val indexes = listOf(EGG_GROUP, GAME)
+    }
+
+    object Games {
+        val TABLE_NAME = "games"
+        val ID = "game_id"
+        val NAME = "name"
+        val GEN = "gen_id"
+
+        val primaryKey = ID
+        val foreignKeys = listOf(ForeignKey(GEN, Generations.TABLE_NAME, Generations.ID))
     }
 
     object Generations {
@@ -169,21 +179,22 @@ class DatabaseDefinition {
     object AttackEffects {
         val TABLE_NAME = "attackeffects"
         val ID = "effect_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val EFFECT_TYPE = "effect_type"
 
         val primaryKey = ID
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID))
     }
 
     object PokemonLevelAttacks {
         val TABLE_NAME = "pokemonlevelattacks"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val LEVEL = "level"
         val ATTACK_ID = "attack_id"
 
-        val primarykey = "$POKEMON_ID,$GEN,$ATTACK_ID"
-        val foreignKeys = listOf(ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID),
+        val primarykey = "$POKEMON_ID,$GAME,$ATTACK_ID"
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID),
                 ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
                 ForeignKey(ATTACK_ID,Attacks.TABLE_NAME,Attacks.ID))
     }
@@ -191,12 +202,12 @@ class DatabaseDefinition {
     object PokemonTMAttacks {
         val TABLE_NAME = "pokemontmattacks"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val TM_NUMBER = "tm_number"
         val ATTACK_ID = "attack_id"
 
-        val primarykey = "$POKEMON_ID,$GEN,$ATTACK_ID"
-        val foreignKeys = listOf(ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID),
+        val primarykey = "$POKEMON_ID,$GAME,$ATTACK_ID"
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID),
                 ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
                 ForeignKey(ATTACK_ID,Attacks.TABLE_NAME,Attacks.ID))
     }
@@ -204,11 +215,11 @@ class DatabaseDefinition {
     object PokemonTutorAttacks {
         val TABLE_NAME = "pokemontutorattacks"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val ATTACK_ID = "attack_id"
 
-        val primarykey = "$POKEMON_ID,$GEN,$ATTACK_ID"
-        val foreignKeys = listOf(ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID),
+        val primarykey = "$POKEMON_ID,$GAME,$ATTACK_ID"
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID),
                 ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
                 ForeignKey(ATTACK_ID,Attacks.TABLE_NAME,Attacks.ID))
     }
@@ -216,11 +227,11 @@ class DatabaseDefinition {
     object PokemonEventAttacks {
         val TABLE_NAME = "pokemoneventattacks"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val ATTACK_ID = "attack_id"
 
-        val primarykey = "$POKEMON_ID,$GEN,$ATTACK_ID"
-        val foreignKeys = listOf(ForeignKey(GEN,Generations.TABLE_NAME,Generations.ID),
+        val primarykey = "$POKEMON_ID,$GAME,$ATTACK_ID"
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID),
                 ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID),
                 ForeignKey(ATTACK_ID,Attacks.TABLE_NAME,Attacks.ID))
     }
@@ -228,9 +239,11 @@ class DatabaseDefinition {
     object CatchRates {
         val TABLE_NAME = "catchrates"
         val POKEMON_ID = "pokemon_id"
-        val GEN = "gen_id"
+        val GAME = "game_id"
         val CATCH_RATE = "catch_rate"
 
-        val primaryKey = "$POKEMON_ID, $GEN"
+        val primaryKey = "$POKEMON_ID, $GAME"
+        val foreignKeys = listOf(ForeignKey(GAME,Games.TABLE_NAME,Games.ID),
+                ForeignKey(POKEMON_ID,Pokemon.TABLE_NAME,Pokemon.ID))
     }
 }

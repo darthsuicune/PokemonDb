@@ -1,7 +1,8 @@
-package com.dlgdev.pokemon.database
+package com.dlgdev.pokemon
 
+import com.dlgdev.pokemon.database.DatabaseDefinition
 import com.dlgdev.pokemon.database.DatabaseDefinition.*
-import com.dlgdev.pokemon.database.models.Pokemon
+import com.dlgdev.pokemon.models.Pokemon
 import com.dlgdev.utils.db.Select
 import java.sql.ResultSet
 import java.sql.SQLException

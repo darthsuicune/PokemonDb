@@ -1,8 +1,7 @@
 package com.dlgdev.pokemon.webservice.controllers
 
-import com.dlgdev.pokemon.database.PokemonProvider
+import com.dlgdev.pokemon.PokemonProvider
 import com.dlgdev.pokemon.webservice.actions.BaseAction
-import com.dlgdev.pokemon.webservice.controllers.BaseController
 import com.dlgdev.pokemon.webservice.models.Output
 import javax.inject.Inject
 

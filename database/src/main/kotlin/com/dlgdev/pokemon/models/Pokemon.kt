@@ -1,13 +1,17 @@
-package com.dlgdev.pokemon.database.models
+package com.dlgdev.pokemon.models
 
 class Pokemon(val dexNumber: Int, val formNumber: Int,val id: Long = -1) {
     var name: String = ""
     var data: PokemonData = PokemonData("0.0", "0.0", "None", "0.0")
     var evolutions = emptyArray<Evolution>()
-    var baseStats = BaseStats(1,1,1,1,1,1)
+    var baseStats = BaseStats(1, 1, 1, 1, 1, 1)
     var types = emptyArray<Type>()
     var abilities = emptyArray<Ability?>()
     var eggGroups = emptyArray<EggGroup>()
+    var levelAttacks = emptyArray<Attack>()
+    var tmAttacks = emptyArray<Attack>()
+    var tutorAttacks = emptyArray<Attack>()
+    var eventAttacks = emptyArray<Attack>()
 
     override fun toString(): String {
         return "Pokemon: $name"

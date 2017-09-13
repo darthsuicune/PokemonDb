@@ -1,6 +1,6 @@
-package com.dlgdev.pokemon.database
+package com.dlgdev.pokemon
 
-import com.dlgdev.pokemon.database.models.Pokemon
+import com.dlgdev.pokemon.models.Pokemon
 import javax.inject.Inject
 
 class PokemonCache @Inject constructor(val mons: MutableMap<Int, MutableMap<Int, Pokemon>> = mutableMapOf()) {

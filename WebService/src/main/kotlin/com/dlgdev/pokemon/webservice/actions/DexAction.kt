@@ -1,6 +1,6 @@
 package com.dlgdev.pokemon.webservice.actions
 
-import com.dlgdev.pokemon.database.PokemonProvider
+import com.dlgdev.pokemon.PokemonProvider
 import javax.inject.Inject
 
 class DexAction @Inject constructor(var provider: PokemonProvider) : BaseAction {

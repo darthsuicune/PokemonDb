@@ -1,7 +1,7 @@
 package com.dlgdev.pokemon.webservice.dagger
 
-import com.dlgdev.pokemon.database.PokemonProvider
-import com.dlgdev.pokemon.database.PokemonRepository
+import com.dlgdev.pokemon.PokemonProvider
+import com.dlgdev.pokemon.PokemonRepository
 import dagger.Module
 import dagger.Provides
 import org.mariadb.jdbc.MariaDbDataSource

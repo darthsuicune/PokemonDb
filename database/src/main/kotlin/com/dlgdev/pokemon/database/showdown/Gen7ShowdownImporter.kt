@@ -1,6 +1,7 @@
 package com.dlgdev.pokemon.database.showdown
 
-import com.dlgdev.pokemon.database.models.*
+import com.dlgdev.pokemon.database.daos.PokemonDao
+import com.dlgdev.pokemon.models.*
 import map
 import org.json.JSONArray
 import org.json.JSONObject
@@ -61,11 +62,13 @@ class Gen7ShowdownImporter @Inject constructor(val dao: PokemonDao) : ShowdownIm
             poke.types = typesFromArray(pokemon.getJSONArray(TYPES))
             poke.abilities = abilities(pokemon.getJSONObject(ABILITIES))
             poke.eggGroups = eggGroupsFromArray(pokemon.getJSONArray(EGG_GROUPS))
-            PokemonData(
+            poke.data = PokemonData(
                     pokemon.getString(HEIGHT),
                     pokemon.getString(WEIGHT),
                     if (pokemon.has(COLOR)) pokemon.getString(COLOR) else null,
-                    if (pokemon.has(GENDER_RATIO)) { genderRatio(pokemon.getJSONObject(GENDER_RATIO)) } else null
+                    if (pokemon.has(GENDER_RATIO)) {
+                        genderRatio(pokemon.getJSONObject(GENDER_RATIO))
+                    } else null
             )
 
             //Only available for some mons
@@ -87,7 +90,7 @@ class Gen7ShowdownImporter @Inject constructor(val dao: PokemonDao) : ShowdownIm
     }
 
     private fun evolutionsFromArray(evosArray: JSONArray): Array<Evolution> {
-        return evosArray.map { it -> Evolution(0,0,"","",false) }.toTypedArray()
+        return evosArray.map { it -> Evolution(0, 0, "", "", false) }.toTypedArray()
     }
 
     private fun eggGroupsFromArray(eggGroupsArray: JSONArray): Array<EggGroup> {

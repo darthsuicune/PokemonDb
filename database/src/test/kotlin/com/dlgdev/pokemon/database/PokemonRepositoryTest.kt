@@ -1,5 +1,7 @@
 package com.dlgdev.pokemon.database
 
+import com.dlgdev.pokemon.PokemonCache
+import com.dlgdev.pokemon.PokemonRepository
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -26,7 +28,7 @@ class PokemonRepositoryTest {
     @Before @Throws(Exception::class)
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        repo = PokemonRepository(source)
+        repo = PokemonRepository(source, PokemonCache(mutableMapOf()))
 
         `when`(source.connection).thenReturn(connection)
         `when`(connection.prepareStatement(anyString())).thenReturn(statement)
