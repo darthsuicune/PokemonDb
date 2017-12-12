@@ -38,7 +38,11 @@ hs_err_pid*
 
 #Using Gradle, no need for project files
 .idea
+.iml
 
 ## Plugin-specific files:
 # IntelliJ
 /out/
+
+#JOOQ
+jooq/

@@ -1,14 +1,13 @@
 package com.dlgdev.pokemon.database.daos
 
 import com.dlgdev.pokemon.database.DatabaseDefinition
-import com.dlgdev.pokemon.database.DatabaseDefinition.Evolutions
-import com.dlgdev.pokemon.database.DatabaseDefinition.PokemonNames
-import com.dlgdev.pokemon.database.DatabaseDefinition.PokemonBaseStats
-import com.dlgdev.pokemon.database.DatabaseDefinition.PokemonEggGroups
-import com.dlgdev.pokemon.database.DatabaseDefinition.PokemonTypes
-import com.dlgdev.pokemon.database.DatabaseDefinition.PokemonAbilities
-import com.dlgdev.pokemon.database.DatabaseDefinition.PokemonLevelAttacks
+import com.dlgdev.pokemon.database.DatabaseDefinition.*
 import com.dlgdev.pokemon.models.*
+import com.dlgdev.pokemon.models.Pokemon
+import com.dlgdev.pokemon.models.PokemonData
+import com.dlgdev.pokemon.query
+import com.dlgdev.pokemon.use
+import java.sql.ResultSet
 import javax.inject.Inject
 import javax.sql.DataSource
 
@@ -33,9 +32,52 @@ open class PokemonDao @Inject constructor(val db: DataSource, val language: Stri
     }
 
     private fun loadMonLevelAttacks(id: Long, game: Int): Array<Attack> {
-        var query = "SELECT * FROM ${PokemonLevelAttacks.TABLE_NAME} " +
-                "WHERE ${PokemonLevelAttacks.POKEMON_ID} = $id"
-        return emptyArray()
+        val query = "SELECT ${PokemonLevelAttacks.ATTACK_ID}," +
+                "${AttackNames.ATTACK_NAME}," +
+                "${AttackNames.DESCRIPTION}," +
+                "${PokemonLevelAttacks.GAME}," +
+                "${Attacks.BASE_POWER}," +
+                "${Attacks.ACCURACY}," +
+                "${Attacks.MODE}," +
+                "${Attacks.ATTACK_TYPE}," +
+                AttackEffects.ID +
+                "FROM ${PokemonLevelAttacks.TABLE_NAME}" +
+                "WHERE ${PokemonLevelAttacks.POKEMON_ID} = ?"
+        return runQuery({ rs ->
+            val atts: Array<Attack> = emptyArray()
+            var i = 0
+            rs.first()
+            while (rs.next()) {
+                atts[i] = rowAsAttack(rs)
+                i++
+            }
+            atts
+        }, query, id.toString())
+    }
+
+    private fun rowAsAttack(rs: ResultSet): Attack {
+        return Attack(id = rs.getLong(0),
+                name = rs.getString(1),
+                description = rs.getString(2),
+                game = rs.getLong(3),
+                basePower = rs.getInt(4),
+                accuracy = rs.getInt(5),
+                mode = rs.getInt(6),
+                type = rs.getInt(7),
+                effect = rs.getLong(8))
+    }
+
+    private fun <T> runQuery(action: (ResultSet) -> T, query: String, vararg values: String): T {
+        var result: T? = null
+        db.use { conn ->
+            val ps = conn.prepareStatement(query)
+            var i = 0
+            values.forEach { ps.setString(i, values[i]); i++ }
+            ps.query { rs ->
+                result = action(rs)
+            }
+        }
+        return result!!
     }
 
     private fun loadMonTmAttacks(id: Long, game: Int): Array<Attack> {

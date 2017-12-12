@@ -3,6 +3,7 @@ dependencies {
             fileTree(dir: "lib", include: "*.jar"),
             project(":models"),
             runtimeDeps.json,
-            runtimeDeps.commons
+            runtimeDeps.commons,
+            runtimeDeps.jooq
     )
 }
